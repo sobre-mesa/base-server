@@ -4,8 +4,6 @@ const morgan = require('morgan');
 const pagesRouter = require('./routes/pagesRoutes.js');
 const plannerRouter = require('./routes/plannerRoutes.js');
 
-console.log("AAAAA", plannerRouter);
-
 const app = express();
 
 app.use(express.json());

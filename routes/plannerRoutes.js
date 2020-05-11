@@ -1,5 +1,5 @@
 const express = require('express');
-const { getAllContainers, newContainer, getContainer, updateContainer, deleteContainer } = require(`${__dirname}/../controllers/plannerController.js`);
+const { getAllContainers, newContainer, getContainer, updateContainer, deleteContainer, aliasTopLayer } = require(`${__dirname}/../controllers/plannerController.js`);
 
 let plannerRouter = express.Router();
 
@@ -13,6 +13,8 @@ plannerRouter
   .get(getContainer)
   .patch(updateContainer)
   .delete(deleteContainer)
+
+plannerRouter.route('/lp/top-layer').get(aliasTopLayer, getAllContainers);
 
 module.exports = plannerRouter;
 

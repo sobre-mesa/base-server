@@ -8,8 +8,12 @@ const throwError = (e, r) => {
   })
 }
 
+exports.aliasTopLayer = (req, res, next) => {
+  req.query.parent = null;
+  next();
+}
+
 exports.getAllContainers = async (req, res) => {
-  console.log("AAAAA")
   try {
     const features = new APIFeatures(Container, req)
       .filter()
