@@ -31,17 +31,20 @@ exports.getAllContainers = async (req, res) => {
     })
   }
   catch (err) {
-    throwError(err, res);
+    throwError(err, res); 
   }
 };
 
 exports.getContainer = async (req, res) => {
   try {
+    console.log("REQUEST", req.params.id)
     const container = await Container.findById(req.params.id);
+    const children = await Container.find({parent: req.params.id});
     res.status(200).json({
       status: 'success',
       data: {
-        container
+        container,
+        children
       }
     })
   }
