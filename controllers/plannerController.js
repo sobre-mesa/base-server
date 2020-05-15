@@ -20,13 +20,12 @@ exports.getAllContainers = async (req, res) => {
       .sort()
       .select()
       .pagination();
-    const containers = await features.query;
-
+    const children = await features.query;
     res.status(200).json({
       status: 'success',
-      results: containers.length,
+      results: children.length,
       data: {
-        containers
+        children
       }
     })
   }
